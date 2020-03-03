@@ -6,6 +6,9 @@ An Unity scene contains serveral objects and some them can be animate-able objec
 ## Version Control
 Created on Unity version 2019.3.1f1
 
+## Special Change after merge
+- Jump function by pressing the "k" key needs to be done at first. Because the cube jumps based on its own coordinate, not the scene coordinate. If 
+
 
 ## Controls
 - Up, Down, Left, Right or WASD - to move the player
