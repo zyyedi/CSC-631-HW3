@@ -33,14 +33,13 @@ public class RayShooter : MonoBehaviour
         {
             Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2);
             Ray ray = _camera.ScreenPointToRay(point);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out var hit))
             {
                 GameObject hitObject = hit.transform.gameObject;
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 if (target != null)
                 {
-                    target.ReactToHit(hit);
+                    ReactiveTarget.ReactToHit(hit);
                 }
                 // else
                 // {
@@ -61,9 +60,5 @@ public class RayShooter : MonoBehaviour
         sphere.transform.position = pos;
         yield return new WaitForSeconds(1);
         Destroy(sphere);
-    }
-    private void jump(Rigidbody rig)
-    {
-        rig.AddForce(rig.transform.up * speed, ForceMode.Impulse);
     }
 }
