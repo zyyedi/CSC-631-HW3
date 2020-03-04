@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    private const float Speed = 50;
+    private float Speed = 50;
+    public Transform scene1;
 
-    public static void ReactToHit(RaycastHit hit)
+    public void ReactToHit(RaycastHit hit)
     {
         Rigidbody rb = hit.transform.GetComponent<Rigidbody>();
         if (rb != null)
@@ -16,9 +17,9 @@ public class ReactiveTarget : MonoBehaviour
         }
     }
 
-    private static void Jump(Rigidbody rig)
+    private void Jump(Rigidbody rig)
     {
-        rig.AddForce(rig.transform.up * Speed, ForceMode.Impulse);
+        rig.AddForce(scene1.up * Speed, ForceMode.Impulse);
     }
 
 
